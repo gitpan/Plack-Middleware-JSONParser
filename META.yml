@@ -28,7 +28,7 @@ no_index:
 provides:
   Plack::Middleware::JSONParser:
     file: lib/Plack/Middleware/JSONParser.pm
-    version: 0.01
+    version: 0.02
 requires:
   Hash::MultiValue: 0
   Plack::Middleware: 0
@@ -38,6 +38,6 @@ resources:
   bugtracker: https://github.com/yosuke-furukawa/Plack-Middleware-JSONParser/issues
   homepage: https://github.com/yosuke-furukawa/Plack-Middleware-JSONParser
   repository: git://github.com/yosuke-furukawa/Plack-Middleware-JSONParser.git
-version: 0.01
+version: 0.02
 x_contributors:
   - 'Yosuke Furukawa <furukawa.yosuke@dena.jp>'

@@ -5,7 +5,7 @@ use JSON;
 use Hash::MultiValue;
 use Plack::Request;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 use parent 'Plack::Middleware';
 
@@ -27,10 +27,16 @@ sub call {
             $env->{'plack.middleware.jsonparser.error'} = $@;
           }
         }
-        $env->{'plack.request.body'}->merge_mixed(
+        if ($env->{'plack.request.body'}) {
+          $env->{'plack.request.body'}->merge_mixed(
             $json
-        );
-    }
+          );
+        } else {
+          $env->{'plack.request.body'} = Hash::MultiValue->from_mixed(
+            $json
+          );
+        }
+      }
     $self->app->($env);
 }
 
